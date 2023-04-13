@@ -1,0 +1,78 @@
+<div class="add-card-button">
+  <!-- <a class="add-button" (click)="popup=true" >{{title}}</a> -->
+  <div class="overlay" *ngIf="popup">
+    <div class="popup">
+      <a (click)="popup=false" class="close" title="close" >&times;</a>
+      <!-- -------------------------------------------- -->
+      <div class="input-container">
+        <form [formGroup]="addCardForm" (ngSubmit)="addCard()">
+
+          <!-- ----------------------- inputs--------------------- -->
+          <div class="allInput">
+            <div>
+              <mat-form-field appearance="outline" class="input1">
+                <mat-label>Card Number</mat-label>
+                <input matInput type="text" id="inp" ng-model="card.number" placeholder="Card Number" formControlName="cardNumber" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}"
+                maxlength="90"
+                [textMask]="mask" >
+                <mat-error>Enter Card Number</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="outline" class="input1" >
+                <mat-label>Card Holder Name</mat-label>
+                <input type="text" id="inp" matInput placeholder="Card Holder Name" formControlName="name">
+                <mat-error>Enter Card Holder Name</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div class="inline-input">
+              <mat-form-field appearance="outline" class="input2">
+                <mat-label>Expiry Date (MM/YY)</mat-label>
+                <input matInput type="text"
+                [textMask]="{mask: datemask}"
+                 placeholder="Expiry Date (MM/YY)" formControlName="expiryDate">
+                <mat-error>Enter Expiry Date</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="input3">
+                <mat-label>CVV/CVC</mat-label>
+                <input matInput type="text" [textMask]="{mask: cvv}"
+                  placeholder="CVV/CVC" formControlName="cvv" >
+                <mat-error>Enter CVV/CVC</mat-error>
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="outline" class="input4" >
+                <mat-label>Issuing Bank</mat-label>
+                <input type="text" matInput placeholder="Issuing Bank" formControlName="bank">
+                <mat-error>Enter Issuing Bank</mat-error>
+              </mat-form-field>
+            </div>
+
+            <!-- --------------------checkbox--------------------- -->
+            <section>
+              <mat-checkbox formControlName="check">Save this card for faster payment</mat-checkbox>
+              <mat-error *ngIf=false></mat-error>
+            </section>
+
+           <!-- ---------------------button------------------------ -->
+
+             <!-- <button mat-raised-button color="warn">Make Payment</button> -->
+             <div  *ngIf="addCardForm.valid; else elseBlock">
+              <button id="first-btn-block" mat-raised-button color="warn">Make Payment</button>
+            </div>
+            <div class="btn-block">
+              <ng-template  #elseBlock>
+                <button id="second-btn-block" mat-raised-button color="primary">Make Payment</button>
+              </ng-template>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

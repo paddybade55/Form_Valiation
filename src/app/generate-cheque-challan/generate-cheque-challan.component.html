@@ -1,0 +1,151 @@
+<app-top-header class="app-table-header"></app-top-header>
+<div class="wrapper">
+  <div class="panel-wrapper mb30">
+    <div class="gen-cash-comp pr15 pl15 pt15 pb0">
+      <div class="wrapper">
+        <h3 class="cash-challan-name-data text-color">Cheque</h3>
+        <p class="print-out-note">Please take print out of deposite challan prior to visiting our branch.</p>
+        <div class="transaction-date-section">
+          <span class="text-color">Transaction Id : {{transactionId}}</span>
+          <abbr class="text-color">Date : {{date | date: 'dd/MM/yyyy'}}</abbr>
+        </div>
+      </div>
+      <div class="wrapper transaction-data-table">
+        <span class="cash-challan-name-data">Total amount payable Rs : {{total_Amount | currency:'INR'}}</span>
+        <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap="30px 0 grid" class="mb0">
+          <div fxFlex="50" fxFlex.lt-md="calc(100% - 20px)" fxFlex.lt-sm="100">
+            <p class="pay-details">Payment details</p>
+            <table mat-table [dataSource]="paymentDetails" class="gen-table-wrapper">
+              <ng-container [matColumnDef]="column" *ngFor="let column of paymentDetailsColumns">
+                <th mat-header-cell *matHeaderCellDef> {{ column }} </th>
+                <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+              </ng-container>
+              <tr mat-row *matRowDef="let row; columns: paymentDetailsColumns;"></tr>
+            </table>
+          </div>
+          <div fxFlex="50" fxFlex.lt-md="calc(100% - 20px)" fxFlex.lt-sm="100" class="box">
+            <p class="pay-details">Payer details</p>
+            <table mat-table [dataSource]="payerDetails" class="gen-table-wrapper">
+              <ng-container [matColumnDef]="column" *ngFor="let column of payerDetailsDisplayColumns">
+                <th mat-header-cell *matHeaderCellDef> {{ column }} </th>
+                <td mat-cell *matCellDef="let element"> {{ element[column] }} </td>
+              </ng-container>
+              <tr mat-row *matRowDef="let row; columns: payerDetailsDisplayColumns;"></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="cash-challan-note">
+        <h3>Note :</h3>
+        <ul>
+          <li>
+            The contents on deposite slip will be deemed as verify by you.
+          </li>
+          <li>
+            Any alteration in deposite slip will make same liable to be rejected.
+          </li>
+          <li>
+            ICICI Bank will not accept conditional and /or part payment.
+          </li>
+          <li>
+            The amount on Cheque and deposite slip must be same.
+          </li>
+          <li>
+            Please check Business Hours of the local ICICI Bank branch prior to visiting same for deposite.
+          </li>
+          <li>
+            Cheque deposite made during business hours will be presented in next clearing cycle on best effort basis.
+          </li>
+          <li>
+            Refund / claim will have to be taken up with merchant.
+          </li>
+          <li>
+            Please collect acknowledgment receipt from cheque deposited.
+          </li>
+        </ul>
+      </div>
+
+      <div class="wrapper cust-copy-id-paymode-amt">
+        <div class="customer-copy">
+          <b>Customer Copy</b><abbr> ( To be filled by Bank official ) </abbr>
+        </div>
+        <div class="wrapper">
+          <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap="20px grid 0" class="mb0">
+            <div fxFlex="50" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100">
+              <div class="customer-transaction-detail">
+                <span>Transaction Id : <b>{{transactionId}}</b></span>
+                <span>Paymode : <b>Cheque</b></span>
+              </div>
+            </div>
+            <div fxFlex="50" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100">
+              <div class="customer-transaction-detail">
+                <span>Date : <b>{{date | date : 'dd/MM/yyyy'}}</b></span>
+                <span>Amount Collected : <b>{{total_Amount}}</b></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper declaration-signature">
+          <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap="20px grid 0" class="mb0">
+            <div fxFlex="100" fxFlex.lt-md="calc(100% - 20px)" fxFlex.lt-sm="100">
+              <div class="transaction-number">
+                <span>I Sure Pay Transaction Reference No. <abbr></abbr></span>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap="20px grid 0" class="mb0">
+            <div fxFlex="100" fxFlex.lt-md="calc(100% - 20px)" fxFlex.lt-sm="100">
+              <div class="transaction-number">
+                <span>Date of Transaction : (DD/MM/YY). <abbr></abbr></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper mt20">
+          <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap="20px grid 0" class="mb0">
+            <div fxFlex="50" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100">
+              <div class="signature-section floatl">
+                <span>Depositor Signature</span>
+              </div>
+            </div>
+            <div fxFlex="50" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100">
+              <div class="signature-section floatr">
+                <span>Bank Officer Seal And Signature</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper mt30 mb30">
+          <div fxLayout="row" fxLayout.lt-md="row wrap" fxLayoutGap="20px grid 0" class="mb0">
+            <div fxFlex="70" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100">
+              <div class="pdf-contact-details">
+                <h3>Contact Us</h3>
+                <b class="text-color">ibcmsdesk@icicibank.com</b>
+                <p>please check the status of the payment by login to:</p>
+                <a href="https//:www.easypay.icicibank.com/Transaction Status/" target="_blank">
+                  https//:www.easypay.icicibank.com/Transaction Status/
+                </a>
+              </div>
+            </div>
+            <div fxFlex="30" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100">
+              <div class="I-sure-pay-logo floatr">
+                <abbr><img src="assets/images/SurePay.png" alt="I-SurePay" ></abbr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-buttons">
+        <button mat-flat-button color="accent" class="mr15">
+          Make Another Payment
+        </button>
+        <button mat-flat-button color="accent" class="mr15">
+          Print
+        </button>
+        <button mat-flat-button color="accent">
+          Download
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

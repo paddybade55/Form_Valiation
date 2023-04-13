@@ -1,0 +1,110 @@
+
+.gen-cash-comp{
+  width: 100%;max-width: 1024px;margin: 0px auto;
+  .cash-challan-name-data{margin-bottom:0px;display:block;font-size: 20px;font-family: "Noto Sans Bold";}
+  .demo-id{font-size: 16px;font-family: 'Noto Sans Regular';font-weight: 600;margin-bottom: 8px;}
+  .print-out-note{margin-bottom: 20px;}
+  .easy-pay-logo{width:100%;float:left;margin-bottom:6px;}
+}
+.cash-challan-note{
+  margin-top: 15px;width:100%; float:left;border-bottom: 1px solid #D1D1D1;margin-bottom: 20px;
+  h3{
+      font-family: "Noto Sans Bold";
+      font-style: normal; font-weight: 700; font-size: 15px;
+      color: #333333;
+      margin-bottom: 10px;
+  }
+}
+.transaction-date-section{
+  width:100%;float:left;margin-bottom: 15px;
+  span{float:left;font-size:20px;font-family: "Noto Sans Regular";font-weight: 600;}
+  abbr{float:right;font-size: 14px;font-family: "Noto Sans Regular";font-weight: 600;}
+}
+.cash-challan-note ul{
+  padding:0 40px 15px 18px;
+  li{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      color: #333333;
+      font-family: 'Noto Sans Regular';
+      list-style-type: disc;
+      padding-bottom: 10px;
+  }
+}
+.wrapper-buttons{
+  margin: 10px 0 10px 0;
+}
+.inline-date{
+  display: inline;
+  color: brown;
+  float: right;
+  margin-right: 20px;
+  span{
+    font-weight: bold;
+  }
+}
+
+.transaction-data-table{
+  padding:20px;
+  border:1px solid #D1D1D1;border-radius:4px;
+  .pay-details{
+    margin: 20px 0 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+  }
+  .box{
+    box-sizing: border-box;
+  }
+}
+
+.cust-copy-id-paymode-amt{
+  .customer-copy{
+    margin-bottom: 18px;
+    b{font-family: "Noto Sans Bold";
+      font-style: normal; font-weight: 700; font-size: 15px;
+      color: #333333;}
+      span{font-family: "Noto Sans Regular";font-size: 16px;
+        color: #333333;}
+    
+  }
+}
+.customer-transaction-detail{
+  span{font-family: "Noto Sans Regular";font-size: 15px;
+    color: #333333;display:block;margin-bottom: 8px;}
+  b{
+    font-family: "Noto Sans Bold";
+  font-style: normal; font-weight: 700; font-size: 14px;
+  color: #333333;
+  }
+}
+.transaction-number{
+  span{font-family: "Noto Sans Regular";font-size: 15px;
+    color: #333333;display:block;margin-bottom: 15px;
+  abbr{
+    border-bottom:1px solid #D1D1D1;
+    min-width: 250px;
+    display: inline-block;
+  }
+  }
+}
+.declaration-signature{
+  margin-bottom: 30px;
+  margin-top:15px;
+}
+
+.signature-section{
+  span{padding-top: 5px;font-family: "Noto Sans Regular";font-size: 15px;color: #333333;margin-bottom: 15px;border-top: 1px solid #D1D1D1;}
+}
+
+.I-sure-pay-logo{
+  width: 160px;
+}
+
+.pdf-contact-details{
+  h3{
+    color: #333333;font-size:16px; font-family: "Noto Sans Bold";
+  }
+  p{margin:10px 0 4px;}
+}
